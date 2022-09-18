@@ -1,12 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Layout, Progress, Typography} from 'antd';
-import {
-    DashboardFilled,
-    DashboardOutlined,
-    FieldTimeOutlined,
-    HourglassOutlined,
-    SearchOutlined
-} from '@ant-design/icons';
+import {DashboardOutlined, FieldTimeOutlined, HourglassOutlined} from '@ant-design/icons';
+import {getPercent, getTime, getСurrentTime} from './utils/utils';
+import {Clock} from './components/Clock';
 
 const {Header, Footer, Content} = Layout;
 const {Title, Text} = Typography;
@@ -14,7 +10,7 @@ const {Title, Text} = Typography;
 type HeaderType = 'время' | 'секундомер' | 'таймер'
 
 const App = () => {
-    const [header, setHeader] = useState('время')
+    const [header, setHeader] = useState<HeaderType>('время')
 
     return (
         <Layout className={'app'}>
@@ -22,22 +18,7 @@ const App = () => {
                 <Title level={4} type={'warning'}>{header}</Title>
             </Header>
             <Content>
-                <div className={'main'}>
-                    <Progress
-                        type="circle"
-                        strokeColor={{
-                            '0%': '#108ee9',
-                            '100%': '#87d068',
-                        }}
-                        percent={90}
-                        width={280}
-                        strokeWidth={12}
-                    />
-                    <div className={'main__content'}>
-                        <Title level={5}>Москва</Title>
-                        <Text>суббота, 17 сентября</Text>
-                    </div>
-                </div>
+                {header === 'время' && <Clock/>}
             </Content>
             <Footer style={{background: '#e1e2e6'}}>
                 <div className={'footer'}>
