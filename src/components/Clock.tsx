@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Progress, Typography} from 'antd';
-import {getDay, getMonth, getNumberOfMonth, getPercent, getСurrentTime} from '../utils/utils';
+import {getDay, getMonth, getNumberOfMonth, getPercent, getСurrentTime} from '../utils/utils-clock';
 
 const {Title, Text} = Typography;
 

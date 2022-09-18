@@ -30,7 +30,6 @@ export const getСurrentTime = () => {
 // Получить актуальное время в процентном отношении к суткам
 export const getPercent = () => {
     const date = new Date()
-    // return `${date.getHours()}:${date.getMinutes()}:${date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()}`
 
     let h = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
     let m = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
