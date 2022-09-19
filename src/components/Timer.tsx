@@ -77,7 +77,6 @@ export const Timer = () => {
                 width={280}
                 strokeWidth={12}
             />
-            <div>Countdown: {time}</div>
             <div className={'slider-group'}>
                 <Slider
                     min={0}
@@ -87,8 +86,6 @@ export const Timer = () => {
                     trackStyle={{background: '#0077ff'}}
                     disabled={isActive}
                 />
-                <br/>
-                <br/>
                 <Slider
                     min={0}
                     max={59}
@@ -97,8 +94,6 @@ export const Timer = () => {
                     trackStyle={{background: '#9000ff'}}
                     disabled={isActive}
                 />
-                <br/>
-                <br/>
                 <Slider
                     min={0}
                     max={59}
@@ -109,10 +104,10 @@ export const Timer = () => {
                 />
             </div>
             <div className={'button-group'}>
-                <ReloadOutlined style={{fontSize: '30px'}} onClick={handleReset}/>
+                <ReloadOutlined style={{fontSize: '36px'}} onClick={handleReset}/>
                 {showButtonStart
-                    ? <PlayCircleFilled style={{fontSize: '60px', color: '#8a19e2'}} onClick={handleStart}/>
-                    : <PauseCircleFilled style={{fontSize: '60px', color: '#fb0303'}} onClick={handlePauseResume}/>
+                    ? <PlayCircleFilled style={{fontSize: '50px', color: '#8a19e2'}} onClick={handleStart}/>
+                    : <PauseCircleFilled style={{fontSize: '50px', color: '#fb0303'}} onClick={handlePauseResume}/>
                 }
             </div>
         </div>

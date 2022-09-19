@@ -62,6 +62,7 @@ export const StopWatch = () => {
                     width={280}
                     strokeWidth={12}
                 />
+                <br/>
                 <div className={'button-group'}>
                     <ReloadOutlined style={{fontSize: '30px'}} onClick={handleReset}/>
                     {showButtonStart
