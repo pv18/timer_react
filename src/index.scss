@@ -41,6 +41,13 @@
   }
 }
 
+.slider-group {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
 .footer {
   max-width: 360px;
   margin: 0 auto;

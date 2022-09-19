@@ -1,16 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Progress, Typography} from 'antd';
-import {getDay, getMonth, getNumberOfMonth, getPercent, getTime, getСurrentTime} from '../utils/utils-clock';
+import {Progress} from 'antd';
 import {getPercentMinutes, getСonvertedTime} from '../utils/utils-stopwatch';
-import {
-    HourglassOutlined,
-    PauseCircleFilled,
-    PlayCircleFilled,
-    ReloadOutlined,
-    RightCircleFilled
-} from '@ant-design/icons';
-
-const {Title, Text} = Typography;
+import {PauseCircleFilled, PlayCircleFilled, ReloadOutlined} from '@ant-design/icons';
 
 export const StopWatch = () => {
     const [isActive, setIsActive] = useState<boolean>(false);
@@ -47,6 +38,7 @@ export const StopWatch = () => {
     const handleReset = () => {
         setIsActive(false);
         setTime(0);
+        setShowButtonStart(true);
     };
 
     return (
@@ -55,8 +47,14 @@ export const StopWatch = () => {
                 <Progress
                     type="circle"
                     strokeColor={{
-                        '0%': '#108ee9',
-                        '100%': '#87d068',
+                        '0%': '#0000ff',
+                        '15%': '#00ffff',
+                        '30%': '#a100ff',
+                        '45%': '#ffff00',
+                        '60%': '#ff0000',
+                        '75%': '#0000ff',
+                        '90%': '#00ffff',
+                        '100%': '#9503fb',
                     }}
                     trailColor={'#e1e2e6'}
                     percent={getPercentMinutes(time)}
@@ -64,9 +62,6 @@ export const StopWatch = () => {
                     width={280}
                     strokeWidth={12}
                 />
-                <br/>
-                <br/>
-                <br/>
                 <div className={'button-group'}>
                     <ReloadOutlined style={{fontSize: '30px'}} onClick={handleReset}/>
                     {showButtonStart

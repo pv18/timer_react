@@ -17,8 +17,8 @@ export const Clock = () => {
                 <Progress
                     type="circle"
                     strokeColor={{
-                        '0%': '#108ee9',
-                        '100%': '#87d068',
+                        '0%': '#00ffff',
+                        '100%': '#0000ff',
                     }}
                     trailColor={'#e1e2e6'}
                     percent={getPercent()}

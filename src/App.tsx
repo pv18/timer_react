@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {Button, Layout, Progress, Typography} from 'antd';
+import React, {useState} from 'react';
+import {Button, Layout, Typography} from 'antd';
 import {DashboardOutlined, FieldTimeOutlined, HourglassOutlined} from '@ant-design/icons';
-import {getPercent, getTime, getСurrentTime} from './utils/utils-clock';
 import {Clock} from './components/Clock';
 import {StopWatch} from './components/StopWatch';
+import {Timer} from './components/Timer';
 
 const {Header, Footer, Content} = Layout;
 const {Title, Text} = Typography;
@@ -21,6 +21,7 @@ const App = () => {
             <Content>
                 {header === 'время' && <Clock/>}
                 {header === 'секундомер' && <StopWatch/>}
+                {header === 'таймер' && <Timer/>}
             </Content>
             <Footer style={{background: '#e1e2e6'}}>
                 <div className={'footer'}>
