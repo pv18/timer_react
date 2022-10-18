@@ -6,7 +6,7 @@ import {StopWatch} from './components/StopWatch';
 import {Timer} from './components/Timer';
 
 const {Header, Footer, Content} = Layout;
-const {Title, Text} = Typography;
+const {Title} = Typography;
 
 type HeaderType = 'время' | 'секундомер' | 'таймер'
 
