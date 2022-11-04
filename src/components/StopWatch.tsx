@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {MutableRefObject, useEffect, useRef, useState} from 'react';
 import {Progress} from 'antd';
 import {getPercentMinutes, getСonvertedTime} from '../utils/utils-stopwatch';
 import {PauseCircleFilled, PlayCircleFilled, ReloadOutlined} from '@ant-design/icons';
@@ -9,18 +9,18 @@ export const StopWatch = () => {
     const [showButtonStart, setShowButtonStart] = useState<boolean>(true);
     const [time, setTime] = useState(0);
 
-    useEffect(() => {
-        let interval: any = null;
+    const interval = useRef<NodeJS.Timer | undefined>(undefined)
 
-        if (isActive && isPaused === false) {
-            interval = setInterval(() => {
+    useEffect(() => {
+        if (isActive && !isPaused) {
+            interval.current = setInterval(() => {
                 setTime((time) => time + 10);
             }, 10);
         } else {
-            clearInterval(interval);
+            clearInterval(interval.current);
         }
         return () => {
-            clearInterval(interval);
+            clearInterval(interval.current);
         };
     }, [isActive, isPaused]);
 

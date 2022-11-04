@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Progress, Slider} from 'antd';
 import {PauseCircleFilled, PlayCircleFilled, ReloadOutlined} from '@ant-design/icons';
 import {getTimerPercent, getСonvertedTimeForTimer} from '../utils/utils-timer';
@@ -29,18 +29,18 @@ export const Timer = () => {
         setSeconds(newValue);
     };
 
-    useEffect(() => {
-        let interval: any = null;
+    const interval = useRef<NodeJS.Timer | undefined>(undefined)
 
-        if (isActive && isPaused === false) {
-            interval = setInterval(() => {
+    useEffect(() => {
+        if (isActive && !isPaused) {
+            interval.current = setInterval(() => {
                 setTime((time) => time === 0 ? 0 : time - 1);
             }, 1000);
         } else {
-            clearInterval(interval);
+            clearInterval(interval.current);
         }
         return () => {
-            clearInterval(interval);
+            clearInterval(interval.current);
         };
     }, [isActive, isPaused]);
 

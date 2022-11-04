@@ -10,6 +10,12 @@ const {Title} = Typography;
 
 type HeaderType = 'время' | 'секундомер' | 'таймер'
 
+const HeaderComponent = {
+    'время': <Clock/>,
+    'секундомер': <StopWatch/>,
+    'таймер': <Timer/>
+}
+
 const App = () => {
     const [header, setHeader] = useState<HeaderType>('время')
 
@@ -19,9 +25,7 @@ const App = () => {
                 <Title level={4} type={'warning'}>{header}</Title>
             </Header>
             <Content>
-                {header === 'время' && <Clock/>}
-                {header === 'секундомер' && <StopWatch/>}
-                {header === 'таймер' && <Timer/>}
+                {HeaderComponent[header]}
             </Content>
             <Footer style={{background: '#e1e2e6'}}>
                 <div className={'footer'}>
